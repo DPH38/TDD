@@ -5,9 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-
 MAX_WAIT = 5
-
 
 class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
@@ -63,16 +61,16 @@ class NewVisitorTest(LiveServerTestCase):
         # The page updates again, and now shows both items on her list
         self.wait_for_row_in_list_table("2: Use peacock feathers to make a fly")
         self.wait_for_row_in_list_table("1: Buy peacock feathers")
-
+        
         # Satisfied, she goes back to sleep
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Edith starts a new to-do list
         self.browser.get(self.live_server_url)
         inputbox=self.browser.find_element(By.ID, "id_new_item")
-        inputbox.send_keys("buy peacock feathers")
+        inputbox.send_keys("Buy peacock feathers")
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table("1: buy peacock feathers")
+        self.wait_for_row_in_list_table("1: Buy peacock feathers")
 
         # She notices that her list has a unique URL
         edith_list_url=self.browser.current_url
@@ -94,7 +92,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox=self.browser.find_element(By.ID, 'id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: Buy milk')
+        self.wait_for_row_in_list_table('1:Buy milk')
 
         #Francis gets his own unique URL
         francis_list_url=self.browser.current_url
@@ -108,3 +106,6 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
+
+
+    
