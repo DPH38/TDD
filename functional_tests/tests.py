@@ -1,5 +1,5 @@
 from selenium.common.exceptions import WebDriverException
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -7,12 +7,12 @@ from selenium.webdriver.firefox.options import Options
 import os
 import time
 
-MAX_WAIT = 5
+MAX_WAIT = 10
 
-
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         options = Options()
+        options.add_argument("--headless")
         snap_binary = "/snap/firefox/current/usr/lib/firefox/firefox"
         if os.path.exists(snap_binary):
             options.binary_location = snap_binary

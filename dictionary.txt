@@ -1,0 +1,2 @@
+Refactoring Cat = check the cat's meme
+YAGNI (pronounced yag-knee) = which stands for “You ain’t gonna need it!”
