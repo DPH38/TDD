@@ -1,2 +1,17 @@
 Refactoring Cat = check the cat's meme
 YAGNI (pronounced yag-knee) = which stands for “You ain’t gonna need it!”
+
+
+
+
+Running the Django dev server
+ 
+    python manage.py runserver
+
+Running the functional tests
+
+    python functional_tests.py
+
+Running the unit tests
+
+    python manage.py test
