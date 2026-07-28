@@ -17,6 +17,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
         if os.path.exists(snap_binary):
             options.binary_location = snap_binary
         self.browser = webdriver.Firefox(options=options)
+        if test_server:= os.environ.get("TEST_SERVER"):
+            self.live_server_url = "http://" + test_server
 
     def tearDown(self):
         self.browser.quit()
